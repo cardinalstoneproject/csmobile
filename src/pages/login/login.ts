@@ -23,7 +23,7 @@ export class LoginPage {
   public password: AbstractControl;
 
   constructor(
-    private viewController: ViewController, 
+    private viewController: ViewController,
     private formBuilder: FormBuilder,
     private loginProvider: LoginProvider,
     private constant: ConstantProvider,
@@ -41,7 +41,7 @@ export class LoginPage {
   }
 
   /**
-   * 
+   *
    */
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -55,7 +55,7 @@ export class LoginPage {
   }
 
   /**
-   * 
+   *
    */
   loginUser(){
     let loader = this.loadingController.create({
@@ -75,10 +75,10 @@ export class LoginPage {
             this.constant.getToastMessage(this.constant.toastMessagePasswordMismatch);
           }
 
-      if(err === null){
+      if((err === null) || (typeof err === 'undefined')){
             this.constant.getToastMessage(this.constant.toastMessageNetworkError);
           }
-          loader.dismiss(); 
+          loader.dismiss();
     });
   }
 
